@@ -1,0 +1,20 @@
+{
+  "name": "skullpunks-nex",
+  "version": "1.0.0",
+  "description": "This is a unique Utility Function, US patent pending for our members to re-mint or create new NFTs called Skullpunks-Nex, and to trade, sell, and collect.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nfts",
+    "Cryptocurrency",
+    "ERC721",
+    "decentralization"
+  ],
+  "author": "@mal33k-eden",
+  "license": "ISC"
+}
