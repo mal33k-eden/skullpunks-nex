@@ -16,5 +16,11 @@
     "decentralization"
   ],
   "author": "@mal33k-eden",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0",
+    "@truffle/hdwallet-provider": "^2.0.4",
+    "csvtojson": "^2.0.10",
+    "truffle-plugin-verify": "^0.5.24"
+  }
 }

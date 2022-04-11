@@ -1,3 +1,7 @@
 test/
 truffle-config.js
 build
+node_modules/
+.secret
+.bsc-api
+package-lock.json
