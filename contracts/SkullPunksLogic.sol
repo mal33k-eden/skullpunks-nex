@@ -6,7 +6,7 @@ contract SkullPunksLogic is Ownable{
 
   mapping(address=>uint256) mintAllowance;
   mapping(address=>bool) mintAllowanceSatus;
-  mapping(address=>uint256) minterEditionLog;
+ 
   address payable public _wallet;
   uint256 public price;
   bool isFlashSale;
@@ -32,15 +32,14 @@ contract SkullPunksLogic is Ownable{
   //
   function addMintAllowance(address _add,uint256 _allow) public onlyOwner returns (bool){
     uint256 allowance   = mintAllowance[_add];
-    mintAllowance[_add] = _allow + allowance;
+    mintAllowance[_add] =  allowance + _allow;
     return true;
   }
   function subMintAllowance(address _add,uint256 _allow) public onlyOwner returns (bool){
-    uint256 allowance   = mintAllowance[_add];
+    uint256 allowance     = mintAllowance[_add];
     if(allowance > 0){
-      mintAllowance[_add] = _allow - allowance;
+      mintAllowance[_add] = allowance - _allow;
     }
-    
     return true;
   }
   function isInitialMint(address _add) public view returns (bool){

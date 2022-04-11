@@ -37,23 +37,26 @@ contract SkullpunksXG is ERC721URIStorage,SkullPunksLogic{
     uint256 _allowance    = getMintAllowance(msg.sender);
     if(_allowance > 0){
       toPay = 0;
-    }
-
-    if(!initalMintStatus){//if initial mint has not been updated
-      require(initialMintAllowance(msg.sender,toAllow),"Allowance update error");
-    }else{//inital mint has been updated check and withdraw from mint allowance
+      //inital mint has been updated check and withdraw from mint allowance
       require(reduceMintAllowance(msg.sender),"This senders allowance cannot be updated at this time");
     }
 
+    if(initalMintStatus == false){//if initial mint has not been updated
+      require(initialMintAllowance(msg.sender,toAllow),"Allowance update error");
+    } 
+
     //requires payment
-    string memory errMsg = string(abi.encodePacked("Amount not equal to price", toPay));
-    require(msg.value >= toPay,  errMsg);
+    require(msg.value >= toPay,"Amount not equal to price");
     if(msg.value > 0){
         forwardEth();
-    } 
+    }
+
     _mint(msg.sender, edition);
     _setTokenURI(edition, tokenURI);
     return edition;
+  }
+  function tokenCursor() public view returns (uint256){
+    return _tokenIds.current();
   }
 
 }
